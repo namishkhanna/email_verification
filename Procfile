@@ -1,0 +1,1 @@
+web: gunicorn email_verification.wsgi
