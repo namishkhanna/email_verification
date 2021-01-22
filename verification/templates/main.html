@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            Email Checker
+        </title>
+
+        <style>
+            body
+            {
+                background-image: url('{% static "/images/background.jpg" %}'); 
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div style="text-align: center; padding-top: 10vw;">
+    
+            <form id="email_form" action="{% url 'main' %}" method="POST">
+
+                <section>
+                    <p style="font-size: 6vw; color: rgb(0, 0, 0);">
+                        Spam Email Checker
+                    </p>
+
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email"
+                        style="font-size: 2.8vw;" required>
+                    <button type="submit" value="login" class="main_button" id="button"
+                        style="font-size: 2.8vw; color: green;">Submit</button>
+    
+                        {% if answer == "Spam Email !!!" %}
+                        <p id="output" style="font-size: 3vw; color: red;">{{output}}</p>
+
+                        {% else %}
+                        <p id="output" style="font-size: 3vw; color: green;">{{output}}</p>
+
+                        {% endif %}
+
+                </section>
+    
+                {% csrf_token %}
+    
+            </form>
+        </div>
+        <p style="font-size: 1.6vw; color: rgb(0, 0, 0); position: fixed; bottom: 0; right: 10;"><b>Made By: </b><a href="https://github.com/namishkhanna"> Namish Khanna </a></p>
+            
+    </body>
+</html>
